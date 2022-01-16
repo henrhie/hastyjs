@@ -50,7 +50,12 @@ export default new (class Cache {
 			return version_cache_[filename] as string;
 		} catch (error: any) {
 			if (error.code === 'EEXIST') {
-				return;
+				const version_cache_ = JSON.parse(
+					await fs.readFile(path.join(CACHE_DIR, 'version_cache.json'), {
+						encoding: 'utf-8',
+					})
+				);
+				return version_cache_[filename] as string;
 			}
 			console.error(error.message);
 		}

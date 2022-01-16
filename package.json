@@ -1,6 +1,6 @@
 {
 	"name": "hastyjs",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "experiment quickly with javascript without node modules",
 	"main": "dist/index.js",
 	"files": [

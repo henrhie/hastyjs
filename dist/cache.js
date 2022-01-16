@@ -53,7 +53,10 @@ exports.default = new (class Cache {
             }
             catch (error) {
                 if (error.code === 'EEXIST') {
-                    return;
+                    const version_cache_ = JSON.parse(yield promises_1.default.readFile(path_1.default.join(CACHE_DIR, 'version_cache.json'), {
+                        encoding: 'utf-8',
+                    }));
+                    return version_cache_[filename];
                 }
                 console.error(error.message);
             }
